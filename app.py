@@ -258,7 +258,8 @@ def initialize_database():
     connection.commit()
 
     connection.close()
-
+# Initialize SQLite database when Flask starts
+initialize_database()
 
 # ================================================================
 # ADMIN LOGIN
