@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>E-L-E Add Article</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .header {
+            background: #222;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #222;
+        }
+
+        .process-title {
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .back {
+            display: block;
+            margin-top: 15px;
+            text-align: center;
+            color: #222;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <h1>E-L-E</h1>
+
+    <p>Add New Article</p>
+
+</div>
+
+
+<div class="container">
+
+<div class="box">
+
+<form method="POST">
+
+
+    <!-- ARTICLE DETAILS -->
+
+    <h2>
+        Article Details
+    </h2>
+
+
+    <div class="form-group">
+
+        <label>
+            Article Code
+        </label>
+
+        <input
+            type="text"
+            name="code"
+            placeholder="Example: SL-001"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Article Name
+        </label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Example: Sheep Lining"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Total Production Days
+        </label>
+
+        <input
+            type="number"
+            name="production_days"
+            min="1"
+            placeholder="Example: 13"
+            required
+        >
+
+    </div>
+
+
+    <!-- PROCESS DETAILS -->
+
+    <h2 class="process-title">
+        Process Schedule
+    </h2>
+
+
+    <div class="form-group">
+
+        <label>
+            WB Issue
+        </label>
+
+        <input
+            type="number"
+            name="WB Issue"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Shaving
+        </label>
+
+        <input
+            type="number"
+            name="Shaving"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Dye House
+        </label>
+
+        <input
+            type="number"
+            name="Dye House"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Vacuum
+        </label>
+
+        <input
+            type="number"
+            name="Vacuum"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Crusting
+        </label>
+
+        <input
+            type="number"
+            name="Crusting"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Buffing / Snuffing
+        </label>
+
+        <input
+            type="number"
+            name="Buffing/Snuffing"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Finishing
+        </label>
+
+        <input
+            type="number"
+            name="Finishing"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <div class="form-group">
+
+        <label>
+            Final Plating
+        </label>
+
+        <input
+            type="number"
+            name="Final Plating"
+            min="0"
+            required
+        >
+
+    </div>
+
+
+    <button type="submit">
+        SAVE ARTICLE TO DATABASE
+    </button>
+
+
+    <a
+        href="/admin"
+        class="back"
+    >
+        ← Back to Admin Dashboard
+    </a>
+
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Effa Leather Exports - Delivery Schedule</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            color: #222;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+        }
+
+        .header {
+            background: #222;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .header p {
+            margin: 8px 0 0;
+            font-size: 15px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #333;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #222;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .result {
+            margin-top: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .details {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .details p {
+            margin: 10px 0;
+        }
+
+        .delivery-date {
+            text-align: center;
+            background: #eeeeee;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .delivery-date h3 {
+            margin: 0 0 8px;
+            font-size: 16px;
+        }
+
+        .delivery-date strong {
+            font-size: 26px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #222;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f7f7f7;
+        }
+
+        .success {
+            margin-top: 20px;
+            padding: 12px;
+            text-align: center;
+            background: #eeeeee;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .error {
+            background: #ffe5e5;
+            color: #990000;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .form-box,
+            .result {
+                padding: 20px;
+            }
+
+            table {
+                font-size: 13px;
+            }
+
+            th,
+            td {
+                padding: 8px;
+            }
+        }
+        @media print {
+
+    body {
+        background: white;
+    }
+
+    .header,
+    .form-box {
+        display: none !important;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .result {
+        display: block !important;
+        margin: 0;
+        padding: 20px;
+        box-shadow: none;
+    }
+
+    .success {
+        display: none;
+    }
+
+    button {
+        display: none;
+    }
+}
+.print-button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+    
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <div class="header">
+
+        <h1>ELE</h1>
+
+        <p>
+            Delivery Schedule System
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         INPUT FORM
+    ====================================================== -->
+
+    <div class="form-box">
+
+        <form method="POST" action="/">
+
+            <!-- SUPPLIER -->
+
+            <div class="form-group">
+
+                <label for="supplier">
+                    Supplier Name
+                </label>
+
+                <input
+                    type="text"
+                    id="supplier"
+                    name="supplier"
+                    placeholder="Enter supplier name"
+                    required
+                >
+
+            </div>
+
+
+            <!-- ARTICLE -->
+
+            <div class="form-group">
+
+                <label for="article">
+                    Article
+                </label>
+
+                <select
+    id="article"
+    name="article"
+    required
+>
+
+    <option value="">
+        Select Article
+    </option>
+
+    {% for article in articles %}
+
+    <option value="{{ article['code'] }}">
+        {{ article['code'] }} - {{ article['name'] }}
+    </option>
+
+    {% endfor %}
+
+</select>
+
+                </select>
+
+            </div>
+
+
+            <!-- ORDER DATE -->
+
+            <div class="form-group">
+
+                <label for="order_date">
+                    Order Date
+                </label>
+
+                <input
+                    type="date"
+                    id="order_date"
+                    name="order_date"
+                    required
+                >
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button type="submit">
+                CALCULATE DELIVERY
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- =====================================================
+         RESULT SECTION
+    ====================================================== -->
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>
+            DELIVERY RESULT
+        </h2>
+
+
+        <!-- BASIC DETAILS -->
+
+        <div class="details">
+
+            <p>
+                <strong>Supplier Name:</strong>
+                {{ result.supplier }}
+            </p>
+
+            <p>
+                <strong>Article Name:</strong>
+                {{ result.article_name }}
+            </p>
+
+            <p>
+                <strong>Article Code:</strong>
+                {{ result.article_code }}
+            </p>
+
+            <p>
+                <strong>Order Date:</strong>
+                {{ result.order_date }}
+            </p>
+
+            <p>
+                <strong>Production Time:</strong>
+                {{ result.production_days }} Days
+            </p>
+
+        </div>
+
+
+        <!-- FINAL DELIVERY DATE -->
+
+        <div class="delivery-date">
+
+            <h3>
+                FINAL DELIVERY DATE
+            </h3>
+
+            <strong>
+                {{ result.delivery_date }}
+            </strong>
+
+        </div>
+
+
+        <!-- PROCESS SCHEDULE -->
+
+        <h2>
+            PROCESS SCHEDULE
+        </h2>
+
+        {% if result.processes %}
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Process
+                    </th>
+
+                    <th>
+                        Days Before Delivery
+                    </th>
+
+                    <th>
+                        Process Date
+                    </th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for process in result.processes %}
+
+                <tr>
+
+                    <td>
+                        {{ process.name }}
+                    </td>
+
+                    <td>
+                        {{ process.days_before }}
+                    </td>
+
+                    <td>
+                        {{ process.date }}
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% endif %}
+
+
+        <div class="success">
+
+            Delivery schedule generated successfully.
+
+        </div>
+
+    </div>65
+    <button onclick="window.print()" class="print-button">
+    PRINT DELIVERY SCHEDULE
+</button>
+
+    {% endif %}
+
+
+</div>
+
+</body>
+</html>
